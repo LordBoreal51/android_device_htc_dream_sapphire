@@ -18,29 +18,32 @@
 
 DEVICE=dream_sapphire
 
-mkdir -p ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/bin/akmd -d ../../../vendor/htc/$DEVICE/proprietary
+mkdir ../../../vendor/htc/$DEVICE/proprietary
+unzip -p $1 system/bin/akmd >../../../vendor/htc/$DEVICE/proprietary/akmd
 chmod 755 ../../../vendor/htc/$DEVICE/proprietary/akmd
-unzip -j -o ../../../${DEVICE}_update.zip system/etc/01_qcomm_omx.cfg -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/etc/AudioFilter.csv -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/etc/AudioPara4.csv -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/etc/AudioPreProcess.csv -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/etc/firmware/brf6300.bin -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/etc/wifi/Fw1251r1c.bin -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/egl/libGLES_qcom.so -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/libaudioeq.so -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/libcamera.so -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/libgps.so -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/libhtc_acoustic.so -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/libhtc_ril.so -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/liblvmxipc.so -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/libmm-adspsvc.so -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/liboemcamera.so -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/libOmxCore.so -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/libOmxH264Dec.so -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/libOmxMpeg4Dec.so -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/libOmxVidEnc.so -d ../../../vendor/htc/$DEVICE/proprietary
-unzip -j -o ../../../${DEVICE}_update.zip system/lib/libqcomm_omx.so -d ../../../vendor/htc/$DEVICE/proprietary
+unzip -p $1 system/etc/AudioFilter.csv >../../../vendor/htc/$DEVICE/proprietary/AudioFilter.csv
+unzip -p $1 system/etc/AudioPara4.csv >../../../vendor/htc/$DEVICE/proprietary/AudioPara4.csv
+unzip -p $1 system/etc/AudioPreProcess.csv >../../../vendor/htc/$DEVICE/proprietary/AudioPreProcess.csv
+unzip -p $1 system/etc/firmware/brf6300.bin >../../../vendor/htc/$DEVICE/proprietary/brf6300.bin
+unzip -p $1 system/etc/wifi/Fw1251r1c.bin >../../../vendor/htc/$DEVICE/proprietary/Fw1251r1c.bin
+unzip -p $1 system/lib/egl/libGLES_qcom.so >../../../vendor/htc/$DEVICE/proprietary/libGLES_qcom.so
+unzip -p $1 system/lib/libaudioeq.so >../../../vendor/htc/$DEVICE/proprietary/libaudioeq.so
+unzip -p $1 system/lib/libgps.so >../../../vendor/htc/$DEVICE/proprietary/libgps.so
+unzip -p $1 system/lib/libhtc_acoustic.so >../../../vendor/htc/$DEVICE/proprietary/libhtc_acoustic.so
+unzip -p $1 system/lib/libhtc_ril.so >../../../vendor/htc/$DEVICE/proprietary/libhtc_ril.so
+unzip -p $1 system/lib/liblvmxipc.so >../../../vendor/htc/$DEVICE/proprietary/liblvmxipc.so
+unzip -p $1 system/lib/libmm-adspsvc.so >../../../vendor/htc/$DEVICE/proprietary/libmm-adspsvc.so
+unzip -p $1 system/lib/liboemcamera.so >../../../vendor/htc/$DEVICE/proprietary/liboemcamera.so
+unzip -p $1 system/lib/libOmxCore.so >../../../vendor/htc/$DEVICE/proprietary/libOmxCore.so
+unzip -p $1 system/lib/libOmxH264Dec.so >../../../vendor/htc/$DEVICE/proprietary/libOmxH264Dec.so
+unzip -p $1 system/lib/libOmxMpeg4Dec.so >../../../vendor/htc/$DEVICE/proprietary/libOmxMpeg4Dec.so
+unzip -p $1 system/lib/libOmxVidEnc.so >../../../vendor/htc/$DEVICE/proprietary/libOmxVidEnc.so
+unzip -p $1 system/lib/libomx_wmadec_sharedlibrary.so >../../../vendor/htc/$DEVICE/proprietary/libomx_wmadec_sharedlibrary.so
+unzip -p $1 system/lib/libomx_wmvdec_sharedlibrary.so >../../../vendor/htc/$DEVICE/proprietary/libomx_wmvdec_sharedlibrary.so
+unzip -p $1 system/lib/libpvasfcommon.so >../../../vendor/htc/$DEVICE/proprietary/libpvasfcommon.so
+unzip -p $1 system/lib/libpvasflocalpbreg.so >../../../vendor/htc/$DEVICE/proprietary/libpvasflocalpbreg.so
+unzip -p $1 system/lib/libpvasflocalpb.so >../../../vendor/htc/$DEVICE/proprietary/libpvasflocalpb.so
+unzip -p $1 system/etc/pvasflocal.cfg >../../../vendor/htc/$DEVICE/proprietary/pvasflocal.cfg
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g > ../../../vendor/htc/$DEVICE/$DEVICE-vendor-blobs.mk
 # Copyright (C) 2010 The Android Open Source Project
@@ -57,24 +60,21 @@ unzip -j -o ../../../${DEVICE}_update.zip system/lib/libqcomm_omx.so -d ../../..
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# This file is generated by device/htc/__DEVICE__/unzip-files.sh - DO NOT EDIT
+# This file is generated by device/htc/__DEVICE__/extract-files.sh - DO NOT EDIT
 
 # Prebuilt libraries that are needed to build open-source libraries
-PRODUCT_COPY_FILES := \\
-    vendor/htc/__DEVICE__/proprietary/libcamera.so:obj/lib/libcamera.so \\
+PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/libgps.so:obj/lib/libgps.so
 
 # All the blobs necessary for sapphire
 PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/akmd:system/bin/akmd \\
-    vendor/htc/__DEVICE__/proprietary/01_qcomm_omx.cfg:system/etc/01_qcomm_omx.cfg \\
     vendor/htc/__DEVICE__/proprietary/AudioFilter.csv:system/etc/AudioFilter.csv \\
     vendor/htc/__DEVICE__/proprietary/AudioPreProcess.csv:system/etc/AudioPreProcess.csv \\
     vendor/htc/__DEVICE__/proprietary/brf6300.bin:system/etc/firmware/brf6300.bin \\
     vendor/htc/__DEVICE__/proprietary/Fw1251r1c.bin:system/etc/wifi/Fw1251r1c.bin \\
     vendor/htc/__DEVICE__/proprietary/libGLES_qcom.so:system/lib/egl/libGLES_qcom.so \\
     vendor/htc/__DEVICE__/proprietary/libaudioeq.so:system/lib/libaudioeq.so \\
-    vendor/htc/__DEVICE__/proprietary/libcamera.so:system/lib/libcamera.so \\
     vendor/htc/__DEVICE__/proprietary/libgps.so:system/lib/libgps.so \\
     vendor/htc/__DEVICE__/proprietary/libhtc_acoustic.so:system/lib/libhtc_acoustic.so \\
     vendor/htc/__DEVICE__/proprietary/libhtc_ril.so:system/lib/libhtc_ril.so \\
@@ -84,12 +84,21 @@ PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/libOmxCore.so:system/lib/libOmxCore.so \\
     vendor/htc/__DEVICE__/proprietary/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \\
     vendor/htc/__DEVICE__/proprietary/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \\
-    vendor/htc/__DEVICE__/proprietary/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \\
-    vendor/htc/__DEVICE__/proprietary/libqcomm_omx.so:system/lib/libqcomm_omx.so
+    vendor/htc/__DEVICE__/proprietary/libOmxVidEnc.so:system/lib/libOmxVidEnc.so
 
-ifeq ($(WITH_DS_HTCACOUSTIC_HACK),)
+ifndef WITH_DS_HTCACOUSTIC_HACK
 PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/AudioPara4.csv:system/etc/AudioPara4.csv
+endif
+
+ifdef WITH_WINDOWS_MEDIA
+PRODUCT_COPY_FILES += \\
+    vendor/htc/__DEVICE__/proprietary/libomx_wmadec_sharedlibrary.so:system/lib/libomx_wmadec_sharedlibrary.so \\
+    vendor/htc/__DEVICE__/proprietary/libomx_wmvdec_sharedlibrary.so:system/lib/libomx_wmvdec_sharedlibrary.so \\
+    vendor/htc/__DEVICE__/proprietary/libpvasfcommon.so:system/lib/libpvasfcommon.so \\
+    vendor/htc/__DEVICE__/proprietary/libpvasflocalpbreg.so:system/lib/libpvasflocalpbreg.so \\
+    vendor/htc/__DEVICE__/proprietary/libpvasflocalpb.so:system/lib/libpvasflocalpb.so \\
+    vendor/htc/__DEVICE__/proprietary/pvasflocal.cfg:system/etc/pvasflocal.cfg
 endif
 EOF
 
